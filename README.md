@@ -1,16 +1,16 @@
 # Unconventional Orchestrator-Java side
 'Everything you need to play music on things never designed to play music'
 
-##Crude build instructions
+## Crude build instructions
 - Install Maven and JDK 1.8
 - In the root of this project's source directory, run 'mvn clean compile assembly:single'
 - Once the command finishes, a runnable jar file will be generated in target/. See the running instructions below for how to start this.
 
-##Crude usage instructions
+## Crude usage instructions
 The first step to using Unconventional Orchestrator is to define the hardware it will be controlling.
 
 mappings.csv and instruments.csv control this hardware<->software configuration.
-###instruments.csv
+### instruments.csv
 This file contains lines in the format:
 
 type:CODE,comPort,numChannels,numDrums
@@ -21,7 +21,7 @@ type:CODE,comPort,numChannels,numDrums
 - numChannels is how many note playing channels this device has. 3 for most CNC machines, and the number of floppies/stepper motors for UIC.
 - numDrums is the number of percussion channels handled by this device. Unlike the above, drum channels cannot play specific tones, and only play on a percussion event. For cnc, this is always 0.
 
-###mappings.csv 
+### mappings.csv 
 This file controls the groups you can chart instruments to. This is useful to give meaning to the channel numbers of UIC devices, or classify instruments controlled by UICs based on their performance for different kinds of notes.
 
 Note that channel groups can overlap without any problems.
@@ -35,7 +35,7 @@ mappingName:Ax,By,Cz,.....
 - For instrument references, the first character is the CODE of the instrument (see instruments.csv above)
 - What follows the instrument code is the channel number to use from that instrument, with 1 being the first channel (X axis for CNC machines, or the first stepper/floppy drive on UNCs).
 
-###Starting the program
+### Starting the program
 
 Make sure the 'songs' and 'config' folders exist before starting the program, and the configuration files above are complete.
  
@@ -45,7 +45,7 @@ If your configuration files are correct (and your defined devices are plugged in
 
 Press the 'Init' button to home any attached CNC machines.
 
-###Mapping songs
+### Mapping songs
 
 
 
@@ -62,12 +62,12 @@ Press 'Play' at the top left to playback what you have made (so far) on the inst
 Once you are happy with your configuration, give it a name in the 'Config' text box, and click 'save config' to save it. You can also restore configurations by selecting it from the dropdown and clicking 'load config'. Note that configurations are specific to song files, and the list is updated on clicking 'load song'.
 
 
-##More details on channel settings
+## More details on channel settings
 TODO: document this
 
-##Drum mappings
+## Drum mappings
 TODO: document this
 
-##Advanced MIDI manipulation
+## Advanced MIDI manipulation
 TODO: document this
 TODO: make sure this even still works
